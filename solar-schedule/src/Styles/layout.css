@@ -1,0 +1,250 @@
+/* Sidebar */
+.sidebar {
+  color: #495057;
+}
+
+/* Left Sidebar */
+.left-sidebar-container {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s;
+  overflow-y: auto;
+  background-color: #f4f4f4;
+  z-index: 1000;
+  transform: translateX(-100%);
+}
+
+.left-sidebar-container.active {
+  transform: translateX(0);
+}
+
+/* Right Sidebar */
+.right-sidebar-container {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.3s;
+  overflow-y: auto;
+  background-color: #f4f4f4;
+  z-index: 1000;
+  transform: translateX(100%);
+}
+
+.right-sidebar-container.active {
+  transform: translateX(0);
+}
+
+/* Main Container */
+.main-container {
+  transition: margin 0.3s;
+  padding: 20px;
+}
+
+.main-container.shifted-left {
+  margin-left: 250px;
+}
+
+.main-container.shifted-right {
+  margin-right: 250px;
+}
+
+@media (max-width: 768px) {
+  .left-sidebar-container.active,
+  .right-sidebar-container.active {
+    width: 100%;
+    transform: translateX(0);
+  }
+
+  .main-container.shifted-left,
+  .main-container.shifted-right {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.react-calendar-timeline .rct-header-root {
+  background: blue;
+}
+
+/*history hint only calculated up to yesterday*/
+.notice {
+  font-size: 0.85em;
+  color: #555;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar-icon {
+  cursor: pointer;
+  width: 40px;
+  height: auto;
+  padding-bottom: 5px;
+  padding-left: 12px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 0.5em 0;
+  flex-grow: 1;
+}
+
+.title-with-icon-container {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.title-login {
+  margin-left: 10px;
+  font-size: 3.5em;
+}
+
+.sidebar-icon-login {
+  width: 70px;
+}
+
+.scrollDownIcon{
+  display: none;
+}
+
+.loginLeft {
+  background-color: #184d56;
+  position: relative;
+  clip-path: polygon(0% 0%, 90% 0%, 80% 100%, 0% 100%);
+  z-index: 10;
+  width: 30rem;
+  /* height: 100%; */
+  margin-right: -25rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  padding: 5rem 5rem 5rem 2rem;
+}
+
+.loginRigth {
+  padding: 5rem 5rem 5rem 25rem;
+  background-color: #ffba33;
+  z-index: 1;
+  width: 55rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+.loginCard {
+  border-radius: 0.5rem;
+  width: 20rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.loginLogo {
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+}
+
+.loginPageTitle {
+  color: #ffba33;
+  font-size: 3.5rem;
+  /* position: relative;
+  transform: translateY(-50%);
+  /* top: 20%;
+  left: 1rem; */
+  font-family: "Open sans";
+  font-weight: 400;
+}
+
+.loginPageSubtitle {
+  color: #c8c6c6;
+  font-size: 1.5rem;
+  /* top: 10%;
+  padding-left: 1rem; */
+}
+
+.loginPageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginPageCard {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 980px) {
+  .loginPageCard {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 0.5rem;
+    background-color: #ffba33;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 1.5rem 0 1.5rem 0;
+  }
+
+  .scrollDownIcon{
+    display: block;
+  }
+  
+
+  .loginLeft {
+
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+    width: auto;
+
+    margin-right: 0;
+
+    padding: 2rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loginRigth {
+    padding: 2rem;
+    background-color: #ffba33;
+    z-index: 1;
+    width: inherit;
+    border-radius: 0 0 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .loginLogo {
+    position: initial;
+  }
+
+  .loginPageTitle {
+    color: #ffba33;
+    font-size: 3.5rem;
+    text-align: center;
+    font-family: "Open sans";
+    font-weight: 400;
+  }
+
+  .loginPageSubtitle {
+    color: #c8c6c6;
+    font-size: 1.5rem;
+  }
+}
