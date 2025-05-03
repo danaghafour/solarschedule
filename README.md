@@ -1,20 +1,93 @@
-# Solar schedule
+# Solar Schedule
 
-https://solar-schedule-iprog.web.app/
+🔗 Live App: [https://solar-schedule-iprog.web.app/](https://solar-schedule-iprog.web.app/)
 
 ## Overview
 
 The website allows users to create a schedule for their electrical devices to be powered by their own solar system. The schedule will be calculated using the solar forecast and simple timing requirements provided by the user.
 
-## Running the app
+This is a simple demand-side management tool. It helps optimize when electrical devices run to best utilize solar energy and reduce reliance on grid electricity. Users input device durations, usage frequency, and energy consumption. The app calculates an optimal schedule based on solar forecasts and shows estimated electricity cost and CO2 emissions.
 
-`cd solar-schedule`
+> ⚠️ CO2 data is currently only available for users in Germany due to limitations in the data provider (EnergyQuantified).
 
-`npm i`
+---
 
-`npm start`
+## Running the App
 
-## Example
+```bash
+cd solar-schedule
+npm install
+npm start
+```
 
-Following is a example use case for better understanding:
-A production plant has solar on the roof and buys electricity when the solar on the roof can't cover the consumption from the grid. The plant has some machines, which dont run all day. The machines can be scheduled. For example machine A has to run everyday for 3h and uses 10kwH and machine B has to run every 3 days for 8h and uses 30kwH. Now the best schedule has to be found to use the free electricity from the solar panel the most efficient way. The data of how much power the solar system is producing is provided by the forecast.solar API. From that we get a time series for the this and the next 2 days. Then the schedule is calculated and presented in a time table. This way the user only has to provide the machines and how long and often they have to get used. We then provide a schedule with the optimal times to let them run. We will also provide a history with the electricity cost in the last week/month/year and the consumed CO2 based on the electricity in the grid. We get the data for the CO2 from EnergyQuantified. Unfortunately this data is only available in Germany. The tool can still be used everywhere to find the best schedule, but the CO2 calculations will only be accessible if the location is in Germany.
+---
+
+## Example Use Case
+
+A production plant has solar panels on the roof and buys electricity from the grid when solar power isn't sufficient. Machines in the plant don't need to run all day and can be scheduled.
+
+For example:
+
+* Machine A: runs daily for 3h and uses 10kWh
+* Machine B: runs every 3 days for 8h and uses 30kWh
+
+The app calculates the best time to run these machines based on the solar forecast over the next 3 days (via the [forecast.solar](https://forecast.solar/) API), minimizing cost and emissions.
+
+---
+
+## Contributors
+
+This project was developed by **Group 11** as part of the DH2642 course:
+
+* **Dana Ghafour Fatulla**
+* **Dániel Hajós**
+* **Sebastián Elías Jofré Machuca**
+* **Leon Marius Moll**
+
+---
+
+## Technologies & APIs Used
+
+* **Frontend**: React
+* **Backend/Hosting**: Firebase
+* **APIs**:
+
+  * [Forecast.Solar](https://forecast.solar/) – for solar energy forecast
+  * EnergyQuantified – for CO2/kWh in the German energy grid
+
+---
+
+## Data Handled
+
+* **From APIs**
+
+  * Solar energy forecast
+  * CO2 emissions (Germany only)
+
+* **Static User Input**
+
+  * Location
+  * Electricity prices
+  * Solar panel configuration
+
+* **Dynamic User Input**
+
+  * Device durations & frequencies
+  * Device energy usage
+
+* **Calculated**
+
+  * Optimal schedule
+  * Estimated electricity cost
+  * Estimated CO2 emissions
+
+---
+
+## App Views
+
+* Login
+* Device List (Add/Edit/Delete/Activate)
+* Solar Setup
+* Schedule (Time Table View)
+* History (Electricity Costs, CO2 Emissions)
+* Optional: Cost and CO2 graphs
